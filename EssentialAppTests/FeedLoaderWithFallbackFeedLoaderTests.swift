@@ -29,7 +29,7 @@ final class FeedLoaderWithFallbackFeedLoaderTests: XCTestCase {
     
     func test_load_deliversErrorOnBothPrimaryAndFallbackLoaderFailure() {
         let sut = makeSUT(primaryResult: .failure(anyNSError()), fallbackResult: .failure(anyNSError()))
-        
+
         expect(sut, toCompleteWith: .failure(anyNSError()))
     }
     

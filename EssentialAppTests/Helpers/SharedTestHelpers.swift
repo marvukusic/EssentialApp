@@ -15,6 +15,6 @@ func anyURL() -> URL {
     URL(string: "https://a-url.com")!
 }
 
-func anyData() -> Data {
-    return Data("any data".utf8)
+func uniqueData() -> Data {
+    return Data("\(UUID())".utf8)
 }
