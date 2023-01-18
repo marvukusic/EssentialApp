@@ -19,15 +19,22 @@ class FeedLoaderWithFallbackComposite {
     }
     
     func load(completion: @escaping (FeedLoader.Result) -> Void) {
-        primary.load { result in
-            completion(result)
+        primary.load { [fallback] result in
+            switch result {
+            case .success:
+                completion(result)
+            case .failure:
+                fallback.load { result in
+                    completion(result)
+                }
+            }
         }
     }
 }
 
 final class FeedLoaderWithFallbackFeedLoaderTests: XCTestCase {
 
-    func test_load_deliversRemoteFeedOnRemoteSuccess() {
+    func test_load_deliversPrimaryFeedOnPrimarySuccess() {
         let primaryFeed = uniqueFeed()
         let fallbackFeed = uniqueFeed()
         
@@ -39,7 +46,25 @@ final class FeedLoaderWithFallbackFeedLoaderTests: XCTestCase {
             case let .success(receivedFeed):
                 XCTAssertEqual(primaryFeed, receivedFeed)
             case .failure:
-                XCTFail("Expected successful load feed resule, got \(result) instead")
+                XCTFail("Expected successful load feed result, got \(result) instead")
+            }
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1)
+    }
+    
+    func test_load_deliversFallbackFeedOnPrimaryFailure() {
+        let fallbackFeed = uniqueFeed()
+        
+        let sut = makeSUT(primaryResult: .failure(anyNSError()), fallbackResult: .success(fallbackFeed))
+        
+        let exp = expectation(description: "Wait for load completion")
+        sut.load { result in
+            switch result {
+            case let .success(receivedFeed):
+                XCTAssertEqual(fallbackFeed, receivedFeed)
+            case .failure:
+                XCTFail("Expected successful fallback load feed result, got \(result) instead")
             }
             exp.fulfill()
         }
