@@ -22,7 +22,7 @@ class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
         task.wrapped = primary.loadImageData(from: url) { [fallback] result in
             switch result {
             case .success:
-                break
+                completion(result)
             case .failure:
                 task.wrapped = fallback.loadImageData(from: url) { _ in }
             }
@@ -94,27 +94,15 @@ final class FeedImageDataLoaderWithFallbackFeedLoaderTests: XCTestCase {
         XCTAssertEqual(fallbackLoader.cancelledUrls, [url], "Expected to load URL from primary loader")
     }
 
-//    func test_loadImageData_loadsFromPrimaryLoaderFirst() {
-//        let primaryImageData = uniqueData()
-//        let fallbackImageData = uniqueData()
-//
-//        let primaryLoader = LoaderSpy(result: .success(primaryImageData))
-//        let fallbackLoader = LoaderSpy(result: .success(fallbackImageData))
-//
-//        let sut = FeedImageDataLoaderWithFallbackComposite(primary: primaryLoader, fallback: fallbackLoader)
-//
-//        let exp = expectation(description: "Wait for load completion")
-//        _ = sut.loadImageData(from: anyURL()) { result in
-//            switch result {
-//            case .success(let data):
-//                XCTAssertEqual(primaryImageData, data)
-//            case .failure:
-//                XCTFail("Expected success response, got \(result) instead")
-//            }
-//            exp.fulfill()
-//        }
-//        wait(for: [exp], timeout: 1)
-//    }
+    func test_loadImageData_deliversPrimaryDataOnPrimaryLoaderSuccess() {
+        let primaryData = uniqueData()
+
+        let (sut, primaryLoader, _) = makeSUT()
+
+        expect(sut, toCompleteWith: .success(primaryData)) {
+            primaryLoader.complete(with: primaryData)
+        }
+    }
     
     // MARK: - Helpers
     
@@ -126,6 +114,29 @@ final class FeedImageDataLoaderWithFallbackFeedLoaderTests: XCTestCase {
         trackForMemoryLeaks(fallbackLoader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, primaryLoader, fallbackLoader)
+    }
+    
+    private func expect(_ sut: FeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for load completion")
+        
+        _ = sut.loadImageData(from: anyURL()) { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedFeed), .success(expectedFeed)):
+                XCTAssertEqual(receivedFeed, expectedFeed, file: file, line: line)
+                
+            case (.failure, .failure):
+                break
+                
+            default:
+                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+            }
+            
+            exp.fulfill()
+        }
+        
+        action()
+        
+        wait(for: [exp], timeout: 1.0)
     }
     
     class LoaderSpy: FeedImageDataLoader {
@@ -152,6 +163,10 @@ final class FeedImageDataLoaderWithFallbackFeedLoaderTests: XCTestCase {
         
         func complete(with error: NSError, at index: Int = 0) {
             messages[index].completion(.failure(error))
+        }
+        
+        func complete(with data: Data, at index: Int = 0) {
+            messages[index].completion(.success(data))
         }
     }
 }
