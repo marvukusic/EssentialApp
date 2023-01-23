@@ -127,11 +127,11 @@
 				AD7D11DB2976AD4900363F7F /* ViewController.swift */,
 				AD7D121B297810B300363F7F /* FeedLoaderWithFallbackComposite.swift */,
 				ADCF7A23297977420042989E /* FeedImageDataLoaderWithFallbackComposite.swift */,
+				ADCF7A2F297EA61D0042989E /* FeedLoaderCacheDecorator.swift */,
 				AD7D11DD2976AD4900363F7F /* Main.storyboard */,
 				AD7D11E02976AD4A00363F7F /* Assets.xcassets */,
 				AD7D11E22976AD4A00363F7F /* LaunchScreen.storyboard */,
 				AD7D11E52976AD4A00363F7F /* Info.plist */,
-				ADCF7A2F297EA61D0042989E /* FeedLoaderCacheDecorator.swift */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
