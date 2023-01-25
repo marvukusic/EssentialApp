@@ -14,17 +14,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    let localStoreURL = NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("feed-store.sqlite")
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
-        
-        let localStoreURL = NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("feed-store.sqlite")
-        
-#if DEBUG
-        if CommandLine.arguments.contains("-reset") {
-            try? FileManager.default.removeItem(at: localStoreURL)
-        }
-#endif
         
         let coreDataFeedStore = try! CoreDataFeedStore(storeURL: localStoreURL)
         
@@ -46,27 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = feedViewController
     }
     
-    private func makeRemoteClient() -> HTTPClient {
-#if DEBUG
-        if UserDefaults.standard.string(forKey: "connectivity") == "offline" {
-            return AlwaysFailingHTTPClient()
-        }
-#endif
-
-         return URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+    func makeRemoteClient() -> HTTPClient {
+        URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
     }
 }
-
-
-#if DEBUG
-private class AlwaysFailingHTTPClient: HTTPClient {
-    private class Task: HTTPClientTask {
-        func cancel() {}
-    }
-    
-    func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
-        completion(.failure(NSError(domain: "offline", code: 0)))
-        return Task()
-    }
-}
-#endif
