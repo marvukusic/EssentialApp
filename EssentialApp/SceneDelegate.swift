@@ -18,14 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        let url = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
+        let localStoreURL = NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("feed-store.sqlite")
+        
+        if CommandLine.arguments.contains("-reset") {
+            try? FileManager.default.removeItem(at: localStoreURL)
+        }
+        
+        let coreDataFeedStore = try! CoreDataFeedStore(storeURL: localStoreURL)
+        
+        let remoteURL = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
         let remoteClient = makeRemoteClient()
 
-        let localStoreURL = NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("feed-store.sqlite")
-        let coreDataFeedStore = try! CoreDataFeedStore(storeURL: localStoreURL)
-
+        let remoteFeedLoader = RemoteFeedLoader(url: remoteURL, client: remoteClient)
         let localFeedLoader = LocalFeedLoader(store: coreDataFeedStore, currentDate: Date.init)
-        let remoteFeedLoader = RemoteFeedLoader(url: url, client: remoteClient)
         let remoteFeedLoaderDecorator = FeedLoaderCacheDecorator(decoratee: remoteFeedLoader, cache: localFeedLoader)
         let feedLoaderComposite = FeedLoaderWithFallbackComposite(primary: remoteFeedLoaderDecorator, fallback: localFeedLoader)
 
