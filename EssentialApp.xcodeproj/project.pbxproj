@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AD5712592981805C00780A50 /* DebuggingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5712582981805C00780A50 /* DebuggingSceneDelegate.swift */; };
 		AD5712912987E49F00780A50 /* SceneDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5712902987E49F00780A50 /* SceneDelegateTests.swift */; };
 		AD5712A02987EA0500780A50 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD57129E2987EA0500780A50 /* FeedUIComposer.swift */; };
 		AD5712A12987EA0500780A50 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD57129D2987EA0500780A50 /* MainQueueDispatchDecorator.swift */; };
@@ -25,6 +24,7 @@
 		AD5712B62987EAEF00780A50 /* FeedViewControllerTests+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5712AD2987EAEF00780A50 /* FeedViewControllerTests+Localization.swift */; };
 		AD5712B72987EAEF00780A50 /* UIRefreshControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5712A62987EAEE00780A50 /* UIRefreshControl+TestHelpers.swift */; };
 		AD5712B92987EB3700780A50 /* FeedUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5712B82987EB3700780A50 /* FeedUIIntegrationTests.swift */; };
+		AD5712BB2987EFD600780A50 /* FeedAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5712BA2987EFD600780A50 /* FeedAcceptanceTests.swift */; };
 		AD7D11D82976AD4900363F7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7D11D72976AD4900363F7F /* AppDelegate.swift */; };
 		AD7D11DA2976AD4900363F7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7D11D92976AD4900363F7F /* SceneDelegate.swift */; };
 		AD7D11DC2976AD4900363F7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7D11DB2976AD4900363F7F /* ViewController.swift */; };
@@ -85,7 +85,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AD5712582981805C00780A50 /* DebuggingSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebuggingSceneDelegate.swift; sourceTree = "<group>"; };
 		AD5712902987E49F00780A50 /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
 		AD57129A2987EA0400780A50 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
 		AD57129B2987EA0500780A50 /* FeedViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewAdapter.swift; sourceTree = "<group>"; };
@@ -103,6 +102,7 @@
 		AD5712AD2987EAEF00780A50 /* FeedViewControllerTests+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Localization.swift"; sourceTree = "<group>"; };
 		AD5712AE2987EAEF00780A50 /* FeedViewControllerTests+LoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+LoaderSpy.swift"; sourceTree = "<group>"; };
 		AD5712B82987EB3700780A50 /* FeedUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIIntegrationTests.swift; sourceTree = "<group>"; };
+		AD5712BA2987EFD600780A50 /* FeedAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAcceptanceTests.swift; sourceTree = "<group>"; };
 		AD7D11D42976AD4900363F7F /* EssentialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD7D11D72976AD4900363F7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD7D11D92976AD4900363F7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,7 +198,6 @@
 				ADCF7A23297977420042989E /* FeedImageDataLoaderWithFallbackComposite.swift */,
 				ADCF7A2F297EA61D0042989E /* FeedLoaderCacheDecorator.swift */,
 				ADCF7A39298018C30042989E /* FeedImageDataLoaderCacheDecorator.swift */,
-				AD5712582981805C00780A50 /* DebuggingSceneDelegate.swift */,
 				AD7D11DD2976AD4900363F7F /* Main.storyboard */,
 				AD7D11E02976AD4A00363F7F /* Assets.xcassets */,
 				AD7D11E22976AD4A00363F7F /* LaunchScreen.storyboard */,
@@ -217,6 +216,7 @@
 				AD7D121D2978117000363F7F /* FeedImageDataLoaderWithFallbackFeedLoaderTests.swift */,
 				ADCF7A27297E93A80042989E /* FeedLoaderCacheDecoratorTests.swift */,
 				ADCF7A31297EC9E20042989E /* FeedImageDataLoaderCacheDecoratorTests.swift */,
+				AD5712BA2987EFD600780A50 /* FeedAcceptanceTests.swift */,
 			);
 			path = EssentialAppTests;
 			sourceTree = "<group>";
@@ -402,7 +402,6 @@
 				ADCF7A24297977420042989E /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */,
 				AD7D11D82976AD4900363F7F /* AppDelegate.swift in Sources */,
 				ADCF7A30297EA61D0042989E /* FeedLoaderCacheDecorator.swift in Sources */,
-				AD5712592981805C00780A50 /* DebuggingSceneDelegate.swift in Sources */,
 				AD5712A12987EA0500780A50 /* MainQueueDispatchDecorator.swift in Sources */,
 				AD7D121C297810B300363F7F /* FeedLoaderWithFallbackComposite.swift in Sources */,
 				AD7D11DA2976AD4900363F7F /* SceneDelegate.swift in Sources */,
@@ -433,6 +432,7 @@
 				AD7D121829780C6800363F7F /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				ADCF7A2A297E989C0042989E /* FeedLoaderStub.swift in Sources */,
 				AD5712AF2987EAEF00780A50 /* FeedViewControllerTests+LoaderSpy.swift in Sources */,
+				AD5712BB2987EFD600780A50 /* FeedAcceptanceTests.swift in Sources */,
 				AD5712B42987EAEF00780A50 /* UIButton+TestHelpers.swift in Sources */,
 				AD5712B92987EB3700780A50 /* FeedUIIntegrationTests.swift in Sources */,
 				AD7D121A29780D3300363F7F /* SharedTestHelpers.swift in Sources */,
