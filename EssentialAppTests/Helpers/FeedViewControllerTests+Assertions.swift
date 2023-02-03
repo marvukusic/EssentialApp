@@ -11,8 +11,7 @@ import EssentialFeediOS
 
 extension FeedUIIntegrationTests {
     func assertThat(_ sut: FeedViewController, hsViewConfiguredFor image: FeedImage, at index: Int, file: StaticString = #file, line: UInt = #line) {
-        sut.tableView.layoutIfNeeded()
-        RunLoop.main.run(until: Date())
+        sut.view.enforceLayoutCycle()
         let view = sut.feedImageView(at: index)
         
         guard let cell = view else {
