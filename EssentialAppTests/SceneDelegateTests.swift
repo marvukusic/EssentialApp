@@ -31,7 +31,7 @@ class SceneDelegateTests: XCTestCase {
         let topController = rootNavigation?.topViewController
         
         XCTAssertNotNil(rootNavigation)
-        XCTAssertTrue(topController is FeedViewController)
+        XCTAssertTrue(topController is ListViewController)
     }
     
     //MARK: - Helpers

@@ -1,5 +1,5 @@
 //
-//  FeedViewController+Helpers.swift
+//  ListViewController+Helpers.swift
 //  EssentialFeediOSTests
 //
 //  Created by Marko Vukušić on 28.09.2022.
@@ -8,7 +8,7 @@
 import UIKit
 import EssentialFeediOS
 
-extension FeedViewController {
+extension ListViewController {
     func simulateUserInitiatedFeedReload() {
         refreshControl?.simulatePullToRefresh()
     }
