@@ -13,8 +13,8 @@ extension ListViewController {
         refreshControl?.simulatePullToRefresh()
     }
     
-    func simulateTapOnErrorMessage() {
-        errorView?.button.simulateTap()
+    func simulateErrorViewTap() {
+        errorView.simulateTap()
     }
     
     func renderedFeedImageData(at index: Int) -> Data? {
@@ -22,7 +22,7 @@ extension ListViewController {
     }
     
     var errorMessage: String? {
-        return errorView?.message
+        return errorView.message
     }
     
     var isShowingLoadingIndicator: Bool {

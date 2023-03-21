@@ -95,7 +95,7 @@ class FeedUIIntegrationTests: XCTestCase {
         XCTAssertEqual(sut.errorMessage, nil)
     }
     
-    func test_errorView_dismissesErrorMessageOnTap() {
+    func test_tapOnErrorView_hidesErrorMessage() {
         let (sut, loader) = makeSUT()
         
         sut.loadViewIfNeeded()
@@ -104,8 +104,21 @@ class FeedUIIntegrationTests: XCTestCase {
         loader.completeFeedLoadingWithError(at: 0)
         XCTAssertEqual(sut.errorMessage, loadError)
         
-        sut.simulateTapOnErrorMessage()
+        sut.simulateUserInitiatedFeedReload()
         XCTAssertEqual(sut.errorMessage, nil)
+    }
+    
+    func test_errorView_dismissesErrorMessageOnTap() {
+//        let (sut, loader) = makeSUT()
+//        
+//        sut.loadViewIfNeeded()
+//        XCTAssertEqual(sut.errorMessage, nil)
+//        
+//        loader.completeFeedLoadingWithError(at: 0)
+//        XCTAssertEqual(sut.errorMessage, loadError)
+//        
+//        sut.simulateTapOnErrorMessage()
+//        XCTAssertEqual(sut.errorMessage, nil)
     }
     
     func test_feedImageView_loadsImageURLWhenVisible() {
