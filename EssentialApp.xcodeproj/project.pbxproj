@@ -14,7 +14,7 @@
 		AD5712A52987EA0500780A50 /* FeedViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD57129B2987EA0500780A50 /* FeedViewAdapter.swift */; };
 		AD5712AF2987EAEF00780A50 /* FeedViewControllerTests+LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5712AE2987EAEF00780A50 /* FeedViewControllerTests+LoaderSpy.swift */; };
 		AD5712B02987EAEF00780A50 /* UIControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5712A82987EAEE00780A50 /* UIControl+TestHelpers.swift */; };
-		AD5712B12987EAEF00780A50 /* FeedViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5712AA2987EAEF00780A50 /* FeedViewController+Helpers.swift */; };
+		AD5712B12987EAEF00780A50 /* ListViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5712AA2987EAEF00780A50 /* ListViewController+Helpers.swift */; };
 		AD5712B22987EAEF00780A50 /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5712AB2987EAEF00780A50 /* UIImage+TestHelpers.swift */; };
 		AD5712B32987EAEF00780A50 /* FeedImageCell+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5712AC2987EAEF00780A50 /* FeedImageCell+Helpers.swift */; };
 		AD5712B42987EAEF00780A50 /* UIButton+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5712A72987EAEE00780A50 /* UIButton+TestHelpers.swift */; };
@@ -77,7 +77,7 @@
 		AD5712A72987EAEE00780A50 /* UIButton+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+TestHelpers.swift"; sourceTree = "<group>"; };
 		AD5712A82987EAEE00780A50 /* UIControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+TestHelpers.swift"; sourceTree = "<group>"; };
 		AD5712A92987EAEF00780A50 /* FeedViewControllerTests+Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Assertions.swift"; sourceTree = "<group>"; };
-		AD5712AA2987EAEF00780A50 /* FeedViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewController+Helpers.swift"; sourceTree = "<group>"; };
+		AD5712AA2987EAEF00780A50 /* ListViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+Helpers.swift"; sourceTree = "<group>"; };
 		AD5712AB2987EAEF00780A50 /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
 		AD5712AC2987EAEF00780A50 /* FeedImageCell+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedImageCell+Helpers.swift"; sourceTree = "<group>"; };
 		AD5712AD2987EAEF00780A50 /* FeedViewControllerTests+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Localization.swift"; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 				AD5712AC2987EAEF00780A50 /* FeedImageCell+Helpers.swift */,
 				AD5712A92987EAEF00780A50 /* FeedViewControllerTests+Assertions.swift */,
 				AD5712AE2987EAEF00780A50 /* FeedViewControllerTests+LoaderSpy.swift */,
-				AD5712AA2987EAEF00780A50 /* FeedViewController+Helpers.swift */,
+				AD5712AA2987EAEF00780A50 /* ListViewController+Helpers.swift */,
 				AD5712A72987EAEE00780A50 /* UIButton+TestHelpers.swift */,
 				AD5712A62987EAEE00780A50 /* UIRefreshControl+TestHelpers.swift */,
 				AD5712A82987EAEE00780A50 /* UIControl+TestHelpers.swift */,
@@ -325,7 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD5712B72987EAEF00780A50 /* UIRefreshControl+TestHelpers.swift in Sources */,
-				AD5712B12987EAEF00780A50 /* FeedViewController+Helpers.swift in Sources */,
+				AD5712B12987EAEF00780A50 /* ListViewController+Helpers.swift in Sources */,
 				AD5712B52987EAEF00780A50 /* FeedViewControllerTests+Assertions.swift in Sources */,
 				AD5712B02987EAEF00780A50 /* UIControl+TestHelpers.swift in Sources */,
 				ADCF7A36298016280042989E /* XCTestCase+FeedImageDataLoader.swift in Sources */,
