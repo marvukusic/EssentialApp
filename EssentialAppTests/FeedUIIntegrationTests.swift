@@ -37,6 +37,7 @@ class FeedUIIntegrationTests: XCTestCase {
     
     func test_loadingFeedIndicator_isVisibleWhileLoadingFeed() {
         let (sut, loader) = makeSUT()
+        
         sut.loadViewIfNeeded()
         
         XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once view is loaded")
@@ -106,19 +107,6 @@ class FeedUIIntegrationTests: XCTestCase {
         
         sut.simulateUserInitiatedFeedReload()
         XCTAssertEqual(sut.errorMessage, nil)
-    }
-    
-    func test_errorView_dismissesErrorMessageOnTap() {
-//        let (sut, loader) = makeSUT()
-//        
-//        sut.loadViewIfNeeded()
-//        XCTAssertEqual(sut.errorMessage, nil)
-//        
-//        loader.completeFeedLoadingWithError(at: 0)
-//        XCTAssertEqual(sut.errorMessage, loadError)
-//        
-//        sut.simulateTapOnErrorMessage()
-//        XCTAssertEqual(sut.errorMessage, nil)
     }
     
     func test_feedImageView_loadsImageURLWhenVisible() {
