@@ -10,7 +10,7 @@ import EssentialFeed
 import EssentialFeediOS
 
 extension FeedUIIntegrationTests {
-    func assertThat(_ sut: ListViewController, hsViewConfiguredFor image: FeedImage, at index: Int, file: StaticString = #file, line: UInt = #line) {
+    func assertThat(_ sut: ListViewController, hasViewConfiguredFor image: FeedImage, at index: Int, file: StaticString = #file, line: UInt = #line) {
         sut.view.enforceLayoutCycle()
         let view = sut.feedImageView(at: index)
         
@@ -28,7 +28,7 @@ extension FeedUIIntegrationTests {
         XCTAssertEqual(sut.numberOfRenderedFeedImageViews(), feed.count, file: file, line: line)
         
         feed.enumerated().forEach { index, image in
-            assertThat(sut, hsViewConfiguredFor: image, at: index, file: file, line: line)
+            assertThat(sut, hasViewConfiguredFor: image, at: index, file: file, line: line)
         }
         
         executeRunLoopToCleanUpReferences()

@@ -3,4 +3,23 @@
    uuid = "6C99135B-C616-4D91-9BBE-B85041CD65EF"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8305A719-08B3-4D49-B64E-B841EB29C9D7"
+            shouldBeEnabled = "No"
+            condition = "instance != nil"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialAppTests/Helpers/XCTestCase+MemoryLeakTracking.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "trackForMemoryLeaks(_:file:line:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
