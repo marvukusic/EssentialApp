@@ -60,6 +60,9 @@ class FeedUIIntegrationTests: XCTestCase {
         
         sut.simulateLoadMoreAction()
         XCTAssertEqual(loader.loadMoreCallCount, 1, "Expected a load more request")
+        
+        sut.simulateLoadMoreAction()
+        XCTAssertEqual(loader.loadMoreCallCount, 1, "Expected no request while loading more")
     }
     
     func test_feedImageView_reloadsImageURLWhenBecomingVisibleAgain() {
