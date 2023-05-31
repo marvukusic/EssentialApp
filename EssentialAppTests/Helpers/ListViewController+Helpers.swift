@@ -25,11 +25,11 @@ extension ListViewController {
     }
     
     func renderedFeedImageData(at index: Int) -> Data? {
-        return simulateFeedImageViewVisible(at: index)?.renderedImage
+        simulateFeedImageViewVisible(at: index)?.renderedImage
     }
     
     var errorMessage: String? {
-        return errorView.message
+        errorView.message
     }
     
     var isShowingLoadingIndicator: Bool {
@@ -93,7 +93,6 @@ extension ListViewController {
         let delegate = tableView.delegate
         let index = IndexPath(row: row, section: feedImagesSection)
         delegate?.tableView?(tableView, willDisplay: view!, forRowAt: index)
-        
         return view
     }
     
@@ -127,12 +126,18 @@ extension ListViewController {
         ds?.tableView?(tableView, cancelPrefetchingForRowsAt: [indexPath])
     }
     
+    func simulateTapOnLoadMoreFeedError() {
+        let delegate = tableView.delegate
+        let index = IndexPath(row: 0, section: feedLoadMoreSection)
+        delegate?.tableView?(tableView, didSelectRowAt: index)
+    }
+    
     var isShowingLoadMoreIndicator: Bool {
         loadMoreFeedCell()?.isLoading == true
     }
     
     var loadMoreFeedErrorMessage: String? {
-        return loadMoreFeedCell()?.message
+        loadMoreFeedCell()?.message
     }
     
     private func loadMoreFeedCell() -> LoadMoreCell? {
