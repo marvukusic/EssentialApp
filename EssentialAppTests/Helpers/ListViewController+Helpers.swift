@@ -127,8 +127,16 @@ extension ListViewController {
         ds?.tableView?(tableView, cancelPrefetchingForRowsAt: [indexPath])
     }
     
+    var isShowingLoadMoreIndicator: Bool {
+        loadMoreFeedCell()?.isLoading == true
+    }
+    
+    private func loadMoreFeedCell() -> LoadMoreCell? {
+        cell(row: 0, section: feedLoadMoreSection) as? LoadMoreCell
+    }
+    
     func simulateLoadMoreAction() {
-        guard let view = cell(row: 0, section: feedLoadMoreSection) else { return }
+        guard let view = loadMoreFeedCell() else { return }
         
         let delegate = tableView.delegate
         let index = IndexPath(row: 0, section: feedLoadMoreSection)
