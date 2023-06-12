@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD21C35B2A3723BF000042F3 /* NullStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21C35A2A3723BF000042F3 /* NullStore.swift */; };
 		AD5712912987E49F00780A50 /* SceneDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5712902987E49F00780A50 /* SceneDelegateTests.swift */; };
 		AD5712A02987EA0500780A50 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD57129E2987EA0500780A50 /* FeedUIComposer.swift */; };
 		AD5712A22987EA0500780A50 /* LoadResourcePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD57129F2987EA0500780A50 /* LoadResourcePresentationAdapter.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AD21C35A2A3723BF000042F3 /* NullStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullStore.swift; sourceTree = "<group>"; };
 		AD5712902987E49F00780A50 /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
 		AD57129A2987EA0400780A50 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
 		AD57129B2987EA0500780A50 /* FeedViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewAdapter.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				AD7D11E02976AD4A00363F7F /* Assets.xcassets */,
 				AD7D11E22976AD4A00363F7F /* LaunchScreen.storyboard */,
 				AD7D11E52976AD4A00363F7F /* Info.plist */,
+				AD21C35A2A3723BF000042F3 /* NullStore.swift */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			files = (
 				AD5712A52987EA0500780A50 /* FeedViewAdapter.swift in Sources */,
 				ADC95631299A444400E46465 /* CombineHelpers.swift in Sources */,
+				AD21C35B2A3723BF000042F3 /* NullStore.swift in Sources */,
 				AD5712A22987EA0500780A50 /* LoadResourcePresentationAdapter.swift in Sources */,
 				AD7D11DC2976AD4900363F7F /* ViewController.swift in Sources */,
 				ADAFF5D029D1C9C800979EF5 /* CommentsUIComposer.swift in Sources */,
